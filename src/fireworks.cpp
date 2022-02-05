@@ -4,11 +4,13 @@
 #include <string>
 #include <Windows.h>
 using namespace std;
+#pragma comment(lib, "winmm.lib")
 
 void FireWorks(string Message = "FireWorks")
 {
 	int Count = 0;
 	string Line = "\0";
+	sndPlaySound("D:\\MyRepository\\Projects\\new_year_fireworks\\new_year_fireworks\\sound\\fireworks.wav", SND_ASYNC | SND_NODEFAULT | SND_LOOP);
 	for (int i = 0; i < 1000; i++)
 	{
 		Count = (rand() % 100) + 1;
@@ -29,4 +31,6 @@ void FireWorks(string Message = "FireWorks")
 		Line = " ";
 		Sleep(50);
 	}
+
+	PlaySound(NULL, NULL, SND_ASYNC);
 }
